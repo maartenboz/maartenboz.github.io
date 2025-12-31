@@ -34,56 +34,151 @@
 					<div class="container">
 						<header class="major">
 							<h2>Projecten</h2>
-							<p>Noemwaardige projecten waar ik afgelopen jaren aan gewerkt heb</p>
+							<p>Een overzicht van mijn werk</p>
 						</header>
-						<div class="row gtr-150">
-							<div class="col-4 col-12-medium">
+						<div class="projects row">
+							<!-- Project 1 -->
+							<div class="project col-6 col-12-small">
+								<h3>Multipoint Aquisition System</h3>
+								<h4 class="project-subtitle">HBO 3e jaars stage bij Technolution</h4>
+								<div class="carousel-wrapper">
+									<div class="carousel">
+										<img src="images/pcb_maarten.png" alt="Voorbeeldafbeelding 1">
+										<img src="images/MAS_arch.png" alt="Voorbeeldafbeelding 2">
+										<img src="images/MAS_prototype.JPEG" alt="Voorbeeldafbeelding 3">
+									</div>
+									<div class="carousel-controls">
+										<button class="prev">&#10094;</button>
+										<button class="next">&#10095;</button>
+									</div>
+								</div>
+								<style>
+								.carousel-wrapper {
+									position: relative;
+									width: 100%;
+									max-width: 600px;
+									margin: 0 auto;
+									overflow: hidden;
+								}
 
-								Sidebar
-									<section id="sidebar">
-										<section>
-											<h3>Magna Feugiat</h3>
-											<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit..</p>
-											<footer>
-												<ul class="actions">
-													<li><a href="#" class="button">Learn More</a></li>
-												</ul>
-											</footer>
-										</section>
-										<hr />
-										<section>
-											<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-											<h3>Amet Lorem Tempus</h3>
-											<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-											<footer>
-												<ul class="actions">
-													<li><a href="#" class="button">Learn More</a></li>
-												</ul>
-											</footer>
-										</section>
-									</section>
+								.carousel {
+									display: flex;
+									transition: transform 0.5s ease-in-out;
+								}
 
+								.carousel img {
+									width: auto; /* Zorgt ervoor dat de originele breedte behouden blijft */
+									height: auto; /* Zorgt ervoor dat de originele hoogte behouden blijft */
+									max-width: 100%; /* Past de afbeelding aan binnen de beschikbare ruimte */
+									margin: auto; /* Centreert de afbeelding binnen de carousel */
+								}
+
+								.carousel-controls {
+									position: absolute;
+									top: 50%;
+									width: 100%;
+									display: flex;
+									justify-content: space-between;
+									transform: translateY(-50%);
+								}
+
+								.carousel-controls button {
+									background-color: rgba(0, 0, 0, 0.5);
+									color: white;
+									border: none;
+									padding: 10px;
+									cursor: pointer;
+								}
+								</style>
+
+								<script>
+								const carousel = document.querySelector('.carousel');
+								const images = document.querySelectorAll('.carousel img');
+								const prevButton = document.querySelector('.prev');
+								const nextButton = document.querySelector('.next');
+
+								let currentIndex = 0;
+
+								function updateCarousel() {
+									const offset = -currentIndex * 100;
+									carousel.style.transform = `translateX(${offset}%)`;
+								}
+
+								prevButton.addEventListener('click', () => {
+									currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+									updateCarousel();
+								});
+
+								nextButton.addEventListener('click', () => {
+									currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+									updateCarousel();
+								});
+								</script>
+								<p>Tijdens mijn derdejaars stage bij Technolution werkte ik aan de ontwikkeling van een Multipoint Acquisition System voor het monitoren van laagspanningsnetwerken. Het doel was het ontwerpen van een kostenefficiënt en schaalbaar meetsysteem waarmee spanning en stroom op meerdere aftakkingen gelijktijdig gemeten kunnen worden.
+
+Ik ontwierp en realiseerde een modulair netwerk van meetnodes, bestaande uit een centrale Voltage Measuring node en meerdere Current Measuring nodes. De nodes communiceren via Single Pair Ethernet (SPE) in een daisy-chain configuratie en worden gevoed door Power over Data Lines (PoDL). Het systeem is volledig uitgewerkt volgens een iteratief V-model, van analyse en architectuur tot hardware-ontwerp, PCB-productie en testen.
+
+Een belangrijk onderdeel van het project was de ontwikkeling van een automatische terminatie-detectie, waardoor nodes zelfstandig bepalen of zij de laatste in het netwerk zijn en automatische de uiteinde van een datalijn kunnen termineren. Daarnaast voerde ik aanvullend onderzoek uit naar kabelinvloeden, datarates en industriële toepasbaarheid van SPE. Dit resulteerde in een volledig werkende prototypes, inclusief schema’s, PCB’s en een uitgebreid testplan.</p>
 							</div>
-							<div class="col-8 col-12-medium imp-medium">
 
-								<!-- Content -->
-									<section id="content">
-										<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-										<h3>Dolore Amet Consequat</h3>
-										<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at magna consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
-										<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique.</p>
-										<h3>Sed Magna Ornare</h3>
-										<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus.</p>
-										<ul>
-											<li>Faucibus orci lobortis ac adipiscing integer.</li>
-											<li>Col accumsan arcu mi aliquet placerat.</li>
-											<li>Lobortis vestibulum ut magna tempor massa nascetur.</li>
-											<li>Blandit massa non blandit tempor interdum.</li>
-											<li>Lacinia mattis arcu nascetur lobortis.</li>
-										</ul>
-									</section>
-									<hr />
+							<!-- Project 2 -->
+							<div class="project col-6 col-12-small">
+								<h3>Projectnaam 2</h3>
+								<h4 class="project-subtitle">Subkopje voor Project 2</h4>
+								<div class="carousel">
+									<img src="images/example2-1.jpg" alt="Voorbeeldafbeelding 1">
+									<img src="images/example2-2.jpg" alt="Voorbeeldafbeelding 2">
+									<img src="images/example2-3.jpg" alt="Voorbeeldafbeelding 3">
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
 
+							<!-- Project 3 -->
+							<div class="project col-6 col-12-small">
+								<h3>Projectnaam 3</h3>
+								<h4 class="project-subtitle">Subkopje voor Project 3</h4>
+								<div class="carousel">
+									<img src="images/example3-1.jpg" alt="Voorbeeldafbeelding 1">
+									<img src="images/example3-2.jpg" alt="Voorbeeldafbeelding 2">
+									<img src="images/example3-3.jpg" alt="Voorbeeldafbeelding 3">
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+
+							<!-- Project 4 -->
+							<div class="project col-6 col-12-small">
+								<h3>Projectnaam 4</h3>
+								<h4 class="project-subtitle">Subkopje voor Project 4</h4>
+								<div class="carousel">
+									<img src="images/example4-1.jpg" alt="Voorbeeldafbeelding 1">
+									<img src="images/example4-2.jpg" alt="Voorbeeldafbeelding 2">
+									<img src="images/example4-3.jpg" alt="Voorbeeldafbeelding 3">
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+
+							<!-- Project 5 -->
+							<div class="project col-6 col-12-small">
+								<h3>Projectnaam 5</h3>
+								<h4 class="project-subtitle">Subkopje voor Project 5</h4>
+								<div class="carousel">
+									<img src="images/example5-1.jpg" alt="Voorbeeldafbeelding 1">
+									<img src="images/example5-2.jpg" alt="Voorbeeldafbeelding 2">
+									<img src="images/example5-3.jpg" alt="Voorbeeldafbeelding 3">
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+
+							<!-- Project 6 -->
+							<div class="project col-6 col-12-small">
+								<h3>Projectnaam 6</h3>
+								<h4 class="project-subtitle">Subkopje voor Project 6</h4>
+								<div class="carousel">
+									<img src="images/example6-1.jpg" alt="Voorbeeldafbeelding 1">
+									<img src="images/example6-2.jpg" alt="Voorbeeldafbeelding 2">
+									<img src="images/example6-3.jpg" alt="Voorbeeldafbeelding 3">
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 							</div>
 						</div>
 					</div>
